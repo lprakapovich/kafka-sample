@@ -1,6 +1,6 @@
 package com.example.kafkasample.consumer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import lombok.extern.log4j.Log4j2;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -8,16 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@Log4j2
 public class KafkaConsumer {
 
     private final List<String> messages = new ArrayList<>();
-    Logger logger = LoggerFactory.getLogger(KafkaConsumer.class);
 
     @KafkaListener(topics = "test-topic", groupId = "kafka-sandbox")
     public void listen(String message) {
         synchronized (messages) {
             messages.add(message);
-            logger.info(message);
+            log.info(message);
         }
     }
 }
