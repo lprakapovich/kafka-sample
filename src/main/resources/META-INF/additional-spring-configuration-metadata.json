@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "kafka.broker",
+      "type": "java.lang.String",
+      "description": "Description for kafka.broker."
+    },
+    {
+      "name": "kafka.group.id",
+      "type": "java.lang.String",
+      "description": "Description for kafka.group.id."
+    }
+  ]
+}
