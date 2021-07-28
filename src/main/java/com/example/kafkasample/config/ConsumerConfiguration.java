@@ -15,12 +15,12 @@ import java.util.Map;
 @Configuration
 public class ConsumerConfiguration {
 
-//    @Value("{kafka.broker}")
-    private static String KAFKA_BROKER = "localhost:9092";
+    @Value("${kafka.broker}")
+    private String KAFKA_BROKER;
 
 
-//    @Value("{kafka.group.id}")
-    private static String KAFKA_GROUP_ID = "kafka-sandbox";
+    @Value("${kafka.group.id}")
+    private String KAFKA_GROUP_ID;
 
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
